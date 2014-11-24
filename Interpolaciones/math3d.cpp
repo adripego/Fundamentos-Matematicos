@@ -94,10 +94,12 @@ MATRIX3 Transpose(MATRIX3 m)
 
 VECTOR3D Transform(MATRIX3 m, VECTOR3D a)
 {
-    
+    VECTOR3D vec;
+    return vec;
 }
 
 MATRIX4 InverseOrthogonalMatrix(MATRIX3 A, VECTOR3D t)
 {
-
+    MATRIX4 matr;
+    return matr;
 }

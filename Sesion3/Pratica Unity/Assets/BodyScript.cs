@@ -19,8 +19,7 @@ public class BodyScript : MonoBehaviour {
 	{ 
 		if ( view == currentView) 
 			return; 
-		
-		
+
 		object[] parms; 
 		currentView = view; 
 		StopCoroutine( "RotateToView" ); 
@@ -67,15 +66,16 @@ public class BodyScript : MonoBehaviour {
 			 break; 
 		 } 
  } 
-	
-	bool done = false;
+
 	
 	private IEnumerator RotateToView( object[] parms ) { 
 		Vector3 direction = (Vector3)parms [0]; 
 		Vector3 up = (Vector3)parms [1]; 
 		// done es una variable booleana que controla el bucle 
+		bool done = false;
 
 		//transform.rotation = q;
+		Quaternion q = Quaternion.FromToRotation(transform.forward, direction);
 
 		while (! done) {
 			// pon tu código de rotación gradual aquí 
@@ -83,13 +83,22 @@ public class BodyScript : MonoBehaviour {
 			// la ejecución a otros procesos para no bloquear el hilo 
 			// principal, pero que debe volver al bucle while 
 			// en el siguiente frame
-			float speed = 5.0f;
-			Quaternion q = Quaternion.FromToRotation(transform.forward, direction);
-			//transform.rotation = transform.rotation * q;
-			transform.rotation =  Quaternion.Lerp (transform.rotation, q, Time.time * speed);;
+			//float speed = 5.0f;
+			done = true;
+			transform.rotation = transform.rotation * q;
+			//transform.rotation =  Quaternion.Lerp (transform.rotation, q, Time.time * speed);;
 			yield return null; 
 		}
 			// rotación ha terminado
+		if (up != transform.up)
+		{
+			up = transform.up;
+			done = false;
+			parms = new object [2] {Vector3.down,Vector3.up}; 
+			StartCoroutine( "RotateToView", parms ); 
+		}
+
+
 			yield return "done";
 	}
 

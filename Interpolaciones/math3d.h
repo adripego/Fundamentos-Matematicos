@@ -40,6 +40,7 @@ typedef struct {
     float m[16];
 } MATRIX4;
 
+
 static const COLOUR grey = {0.7,0.7,0.7};
 static const COLOUR red = {1,0,0};
 static const COLOUR green = {0,1,0};
@@ -68,9 +69,9 @@ double dotproduct(VECTOR3D a, VECTOR3D b);
 
 MATRIX3 Transpose(MATRIX3 m);
 
-VECTOR3D Transform (MATRIX3 m, VECTOR3D a); // multiplicacion del vector por la matriz
+//VECTOR3D Transform (MATRIX3 m, VECTOR3D a); // multiplicacion del vector por la matriz
 
-MATRIX4 InverseOrthogonalMatrix(MATRIX3 A, VECTOR3D t);
+//MATRIX4 InverseOrthogonalMatrix(MATRIX3 A, VECTOR3D t);
 
 
 #endif
