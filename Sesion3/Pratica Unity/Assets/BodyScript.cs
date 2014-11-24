@@ -34,22 +34,35 @@ public class BodyScript : MonoBehaviour {
 			
 		case "Front": 
 			// TODO
+			parms = new object [2] {Vector3.forward,Vector3.up}; 
+			StartCoroutine( "RotateToView", parms ); 
 			break; 
 			
 		case "Top":
 			 // TODO
+			parms = new object [2] {Vector3.up,Vector3.up}; 
+			StartCoroutine( "RotateToView", parms ); 
+
 			 break; 
 			 
 		case "Bottom": 
 			 // TODO
+			parms = new object [2] {Vector3.down,Vector3.up}; 
+			StartCoroutine( "RotateToView", parms ); 
 			 break; 
 			 
 		case "Right": 
 			 // TODO
+			parms = new object [2] {Vector3.right,Vector3.up}; 
+			StartCoroutine( "RotateToView", parms ); 
+			break; 
 			 break; 
 			 
 		 case "Back": 
 			 // TODO
+			parms = new object [2] {Vector3.back,Vector3.up}; 
+			StartCoroutine( "RotateToView", parms ); 
+			break; 
 			 break; 
 			 
 		 default: 
