@@ -60,12 +60,12 @@ VECTOR3D MultiplyWithScalar(float scalar, VECTOR3D a);
 
 double Magnitude(VECTOR3D a);
 
-//VECTOR3D Normalize(VECTOR3D a);
-//
-//VECTOR3D CrossProduct(VECTOR3D a, VECTOR3D b);
-//
-//double DotProduct(VECTOR3D a, VECTOR3D b);
-//
+VECTOR3D normalize(VECTOR3D a);
+
+VECTOR3D crossproduct(VECTOR3D a, VECTOR3D b);
+
+double dotproduct(VECTOR3D a, VECTOR3D b);
+
 //MATRIX3 Transpose(MATRIX3 m);
 //
 //VECTOR3D Transform (MATRIX3 m, VECTOR3D a); // multiplicacion del vector por la matriz

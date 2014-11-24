@@ -56,14 +56,12 @@ public class BodyScript : MonoBehaviour {
 			parms = new object [2] {Vector3.right,Vector3.up}; 
 			StartCoroutine( "RotateToView", parms ); 
 			break; 
-			 break; 
 			 
 		 case "Back": 
 			 // TODO
 			parms = new object [2] {Vector3.back,Vector3.up}; 
 			StartCoroutine( "RotateToView", parms ); 
 			break; 
-			 break; 
 			 
 		 default: 
 			 break; 
@@ -85,9 +83,10 @@ public class BodyScript : MonoBehaviour {
 			// la ejecución a otros procesos para no bloquear el hilo 
 			// principal, pero que debe volver al bucle while 
 			// en el siguiente frame
+			float speed = 5.0f;
 			Quaternion q = Quaternion.FromToRotation(transform.forward, direction);
-			transform.rotation = transform.rotation * q;
-
+			//transform.rotation = transform.rotation * q;
+			transform.rotation =  Quaternion.Lerp (transform.rotation, q, Time.time * speed);;
 			yield return null; 
 		}
 			// rotación ha terminado
